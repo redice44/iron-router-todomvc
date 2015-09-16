@@ -1,6 +1,6 @@
 
 Router.route('/', {
-  name: 'home',
-  controller: 'HomeController',
+  name: 'app',
+  controller: 'AppController',
   where: 'client'
 });
