@@ -2,10 +2,11 @@
 /* Header: Event Handlers */
 /*****************************************************************************/
 Template.Header.events({
-  'submit .new-todo-form': function(event) {
-    event.preventDefault();
-    Meteor.call('addTask', event.target.children[0].value);
-    event.target.children[0].value = "";
+  'keypress .new-todo': function(event) {
+    if(event.type === "keypress" && event.which === 13) {
+      Meteor.call('addTask', event.target.value);
+      event.target.value = "";
+    }
   }
 });
 
