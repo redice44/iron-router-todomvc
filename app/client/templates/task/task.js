@@ -12,8 +12,15 @@ Template.Task.events({
   },
   'submit .edit-form': function(event) {
     event.preventDefault();
+    console.log('Saving Changes');
     Session.set('editing', null);
     Meteor.call('setTodo', this._id, event.target.children[0].value);
+  },
+  'blur .edit-form': function(event) {
+    event.preventDefault();
+    console.log('Saving Changes');
+    Session.set('editing', null);
+    Meteor.call('setTodo', this._id, event.target.value);
   },
   'click .destroy': function(event) {
     event.preventDefault();
