@@ -18,6 +18,9 @@ Template.Footer.helpers({
   },
   hasCompleted: function() {
     return Tasks.find({completed: true}).count();
+  },
+  singular: function() {
+    return (Tasks.find({completed: false}).count() == 1) ? '' : 's';
   }
 });
 
