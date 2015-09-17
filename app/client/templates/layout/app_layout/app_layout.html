@@ -2,9 +2,12 @@
   <section class='todoapp'>
     {{> yield "header"}}
 
-    {{> yield "main"}}
+    <!-- Logic: Only show if there are tasks -->
+    {{#if 1}}
+      {{> yield "main"}}
 
-    {{> yield "footer"}}
+      {{> yield "footer"}}
+    {{/if}}
   </section>
   {{> yield "info"}}
 </template>
