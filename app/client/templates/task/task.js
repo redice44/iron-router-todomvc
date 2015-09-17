@@ -22,6 +22,14 @@ Template.Task.events({
     Session.set('editing', null);
     Meteor.call('setTodo', this._id, event.target.value);
   },
+  'keydown .edit': function(event) {
+    // Escape has been pressed
+    if(event.which === 27) {
+      console.log('Discarding Changes');
+      event.target.value = this.text;
+      Session.set('editing', null);
+    }
+  },
   'click .destroy': function(event) {
     event.preventDefault();
     Meteor.call('removeTask', this._id);
