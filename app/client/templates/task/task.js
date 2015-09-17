@@ -10,24 +10,18 @@ Template.Task.events({
     console.log('Double Clicked Task');
     Session.set('editing', this._id);
   },
-  'submit .edit-form': function(event) {
-    event.preventDefault();
-    console.log('Saving Changes');
-    Session.set('editing', null);
-    Meteor.call('setTodo', this._id, event.target.children[0].value);
-  },
-  'blur .edit-form': function(event) {
-    event.preventDefault();
-    console.log('Saving Changes');
-    Session.set('editing', null);
-    Meteor.call('setTodo', this._id, event.target.value);
-  },
-  'keydown .edit': function(event) {
+  'keydown .edit, blur .edit': function(event) {
     // Escape has been pressed
-    if(event.which === 27) {
+    if(event.type === "keydown" && event.which === 27 || event.type === "blur") {
       console.log('Discarding Changes');
       event.target.value = this.text;
       Session.set('editing', null);
+    } 
+    // Enter has been pressed
+    else if (event.which === 13) {
+      console.log('Saving Changes');
+      Session.set('editing', null);
+      Meteor.call('setTodo', this._id, event.target.value);
     }
   },
   'click .destroy': function(event) {
