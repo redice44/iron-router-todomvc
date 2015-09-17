@@ -16,7 +16,7 @@ Meteor.methods({
     todo = todo.trim();
     if(todo !== '') {
       console.log('Updating Todo Task');
-      Tasks.update(id, {$set: {text: todo}});
+      Tasks.update(id, {$set: {title: todo}});
     } else {
       Meteor.call('removeTask', id);
     }
@@ -29,7 +29,7 @@ Meteor.methods({
     todo = todo.trim();
     if(todo !== '') {
       Tasks.insert({
-        text: todo,
+        title: todo,
         createdAt: new Date(),
         completed: false
       });

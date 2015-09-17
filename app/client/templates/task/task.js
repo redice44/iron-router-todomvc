@@ -14,7 +14,7 @@ Template.Task.events({
     // Escape has been pressed
     if(event.type === "keydown" && event.which === 27 || event.type === "blur") {
       console.log('Discarding Changes');
-      event.target.value = this.text;
+      event.target.value = this.title;
       Session.set('editing', null);
     } 
     // Enter has been pressed
