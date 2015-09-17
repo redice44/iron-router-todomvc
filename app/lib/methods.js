@@ -12,6 +12,14 @@ Meteor.methods({
     }
     // server method logic
   },
+  setTodo: function(id, todo) {
+    console.log('Updating Todo Task');
+    Tasks.update(id, {$set: {text: todo}});
+  },
+  setComplete: function(id, complete) {
+    console.log('Updating Todo Completed');
+    Tasks.update(id, {$set: {completed: complete}});
+  },
   addTask: function(todo) {
     Tasks.insert({
       text: todo,
@@ -19,5 +27,9 @@ Meteor.methods({
       completed: false
     });
     console.log('Inserting Task: ' + todo);
+  },
+  removeTask: function(id) {
+    console.log('Removing Todo');
+    Tasks.remove(id);
   }
 });
