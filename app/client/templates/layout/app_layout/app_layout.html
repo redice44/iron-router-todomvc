@@ -3,7 +3,7 @@
     {{> yield "header"}}
 
     <!-- Logic: Only show if there are tasks -->
-    {{#if 1}}
+    {{#if emptyList}}
       {{> yield "main"}}
 
       {{> yield "footer"}}

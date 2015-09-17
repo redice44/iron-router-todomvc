@@ -4,9 +4,9 @@
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
     <!-- Iterate through all tasks -->
-    <!-- {{#each [1]}} -->
+    {{#each tasks}}
       {{> Task}}
-    <!-- {{/each}} -->
+    {{/each}}
     </ul>
   </section>
 </template>

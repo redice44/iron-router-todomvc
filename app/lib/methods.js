@@ -11,5 +11,13 @@ Meteor.methods({
     //   return;
     }
     // server method logic
+  },
+  addTask: function(todo) {
+    Tasks.insert({
+      text: todo,
+      createdAt: new Date(),
+      completed: false
+    });
+    console.log('Inserting Task: ' + todo);
   }
 });

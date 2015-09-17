@@ -2,6 +2,11 @@
 /* Header: Event Handlers */
 /*****************************************************************************/
 Template.Header.events({
+  'submit .new-todo-form': function(event) {
+    event.preventDefault();
+    console.log('New Task: ' + event.target.children[0].value);
+    Meteor.call('addTask', event.target.children[0].value);
+  }
 });
 
 /*****************************************************************************/
