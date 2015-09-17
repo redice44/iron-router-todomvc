@@ -4,7 +4,6 @@
 Template.Main.events({
   'click .toggle-all': function(event) {
     var state = event.currentTarget.checked;
-    console.log(state);
     Tasks.find({}).forEach(function(task) {
       Meteor.call('setComplete', task._id, state);
     });
@@ -27,7 +26,7 @@ Template.Main.events({
 /*****************************************************************************/
 Template.Main.helpers({
   tasks: function() {
-    return Tasks.find({});
+    return Tasks.find({}, {sort: {createdAt: -1}});
   },
   check: function() {
     // All tasks are complete

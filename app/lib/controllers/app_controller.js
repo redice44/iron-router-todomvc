@@ -6,7 +6,6 @@ AppController = RouteController.extend({
   // this.subscribe('item', this.params._id).wait();
   
   subscriptions: function() {
-    this.subscribe('tasks');
   },
   
   // Subscriptions or other things we want to "wait" on. This also
@@ -46,14 +45,46 @@ AppController = RouteController.extend({
   // Example:
   //  action: 'myActionFunction'
   
-  action: function () {
+  action: function () {    
+    var filter = this.data();
+
     this.render('Header', {to: 'header'});
     this.render('Main', {to: 'main'});
-    this.render('Footer', {to: 'footer'});
+    this.render('Footer', {to: 'footer', data: filter});
     this.render('Info', {to: 'info'});
   },
   onAfterAction: function () {
   },
   onStop: function () {
+  }
+});
+
+AllController = AppController.extend({
+  subscriptions: function() {
+    console.log('All Subscriptions');
+    this.subscribe('tasks');
+  },
+  data: function() {
+    return {filter: 'all'};
+  }
+});
+
+ActiveController = AppController.extend({
+  subscriptions: function() {
+    console.log('Active Subscriptions');
+    this.subscribe('tasks', {completed: false});
+  },
+  data: function() {
+    return {filter: 'active'};
+  }
+});
+
+CompletedController = AppController.extend({
+  subscriptions: function() {
+    console.log('Completed Subscriptions');
+    this.subscribe('tasks', {completed: true});
+  },
+  data: function() {
+    return {filter: 'completed'};
   }
 });
