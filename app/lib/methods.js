@@ -13,20 +13,30 @@ Meteor.methods({
     // server method logic
   },
   setTodo: function(id, todo) {
-    console.log('Updating Todo Task');
-    Tasks.update(id, {$set: {text: todo}});
+    todo = todo.trim();
+    if(todo !== '') {
+      console.log('Updating Todo Task');
+      Tasks.update(id, {$set: {text: todo}});
+    } else {
+      Meteor.call('removeTask', id);
+    }
   },
   setComplete: function(id, complete) {
     console.log('Updating Todo Completed');
     Tasks.update(id, {$set: {completed: complete}});
   },
   addTask: function(todo) {
-    Tasks.insert({
-      text: todo,
-      createdAt: new Date(),
-      completed: false
-    });
-    console.log('Inserting Task: ' + todo);
+    todo = todo.trim();
+    if(todo !== '') {
+      Tasks.insert({
+        text: todo,
+        createdAt: new Date(),
+        completed: false
+      });
+      console.log('Inserting Task: ' + todo);
+    } else { 
+      console.log('Fail: Empty Task');
+    }
   },
   removeTask: function(id) {
     console.log('Removing Todo');

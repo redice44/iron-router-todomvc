@@ -4,13 +4,7 @@
 Template.Header.events({
   'submit .new-todo-form': function(event) {
     event.preventDefault();
-    var task = event.target.children[0].value.trim();
-    if(task !== "") {
-      console.log('INSERT Task: ' + task);
-      Meteor.call('addTask', task);
-    } else {
-      console.log('Task Empty. No task created.');
-    }
+    Meteor.call('addTask', event.target.children[0].value);
     event.target.children[0].value = "";
   }
 });
