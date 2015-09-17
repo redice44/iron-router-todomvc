@@ -6,6 +6,7 @@ Template.Header.events({
     event.preventDefault();
     console.log('New Task: ' + event.target.children[0].value);
     Meteor.call('addTask', event.target.children[0].value);
+    event.target.children[0].value = "";
   }
 });
 
