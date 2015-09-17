@@ -3,8 +3,12 @@
 /*****************************************************************************/
 Template.Main.events({
   'click .toggle-all': function(event) {
-    // If all tasks are complete, set all incomplete
-    // Otherwise find the incomplete and set complete
+    var state = event.currentTarget.checked;
+    console.log(state);
+    Tasks.find({}).forEach(function(task) {
+      Meteor.call('setComplete', task._id, state);
+    });
+/*
     if(!Tasks.find({completed: false}).count()) {
       Tasks.find({}).forEach(function(task) {
         Meteor.call('setComplete', task._id, false);
@@ -14,6 +18,7 @@ Template.Main.events({
         Meteor.call('setComplete', task._id, true);
       });
     }
+    */
   }
 });
 
@@ -23,6 +28,12 @@ Template.Main.events({
 Template.Main.helpers({
   tasks: function() {
     return Tasks.find({});
+  },
+  check: function() {
+    // All tasks are complete
+    if(!Tasks.find({completed: false}).count()) {
+      return 'checked';
+    }
   }
 });
 
