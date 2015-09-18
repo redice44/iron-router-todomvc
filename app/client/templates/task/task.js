@@ -1,3 +1,5 @@
+var ENTER_KEY = 13;
+var ESC_KEY = 27;
 /*****************************************************************************/
 /* Task: Event Handlers */
 /*****************************************************************************/
@@ -11,14 +13,12 @@ Template.Task.events({
     Session.set('editing', this._id);
   },
   'keydown .edit, blur .edit': function(event) {
-    // Escape has been pressed
-    if(event.type === "keydown" && event.which === 27 || event.type === "blur") {
+    if(event.type === "keydown" && event.which === ESC_KEY || event.type === "blur") {
       console.log('Discarding Changes');
       event.target.value = this.title;
       Session.set('editing', null);
     } 
-    // Enter has been pressed
-    else if (event.which === 13) {
+    else if (event.which === ENTER_KEY) {
       console.log('Saving Changes');
       Session.set('editing', null);
       Meteor.call('setTodo', this._id, event.target.value);
