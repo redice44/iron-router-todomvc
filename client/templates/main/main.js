@@ -26,7 +26,10 @@ Template.Main.events({
 /*****************************************************************************/
 Template.Main.helpers({
   tasks: function() {
-    return Tasks.find({}, {sort: {createdAt: -1}});
+    console.log("Query");
+    console.log(this);
+    console.log(this.q);
+    return Tasks.find(this.q, {sort: {createdAt: -1}});
   },
   check: function() {
     // All tasks are complete
