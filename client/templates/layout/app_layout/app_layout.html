@@ -1,8 +1,7 @@
-<template name="AppLayout">
+<template name='AppLayout'>
   <section class='todoapp'>
     {{> yield "header"}}
 
-    <!-- Logic: Only show if there are tasks -->
     {{#if emptyList}}
       {{> yield "main"}}
 

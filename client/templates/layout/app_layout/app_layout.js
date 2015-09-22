@@ -9,7 +9,6 @@ Template.AppLayout.events({
 /*****************************************************************************/
 Template.AppLayout.helpers({
   emptyList: function() {
-    console.log('# of tasks: ' + Tasks.find({}).count());
     return Tasks.find({}).count();
   }
 });

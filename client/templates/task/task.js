@@ -5,22 +5,17 @@ var ESC_KEY = 27;
 /*****************************************************************************/
 Template.Task.events({
   'click .toggle': function(event) {
-    console.log('Toggling');
     Meteor.call('setComplete', this._id, !this.completed);
   },
   'dblclick .view': function(event) {
-    console.log('Double Clicked Task');
     Session.set('editing', this._id);
   },
   'keydown .edit, focusout .edit': function(event) {
-    console.log(event.type);
-    if(event.type === "keydown" && event.which === ESC_KEY) {
-      console.log('Discarding Changes');
+    if(event.type === 'keydown' && event.which === ESC_KEY) {
       event.target.value = this.title;
       Session.set('editing', null);
     } 
-    else if ((event.type === "keydown" && event.which === ENTER_KEY) || event.type === "focusout") {
-      console.log('Saving Changes');
+    else if ((event.type === 'keydown' && event.which === ENTER_KEY) || event.type === 'focusout') {
       Session.set('editing', null);
       Meteor.call('setTodo', this._id, event.target.value);
     }

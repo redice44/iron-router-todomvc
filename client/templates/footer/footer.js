@@ -20,12 +20,9 @@ Template.Footer.helpers({
     return Tasks.find({completed: true}).count();
   },
   singular: function() {
-    console.log(this);
     return (Tasks.find({completed: false}).count() == 1) ? '' : 's';
   },
   isActive: function(filter) {
-    console.log(filter);
-    console.log(this.filter);
     return (this.filter == filter) ? 'selected' : '';
   }
 });

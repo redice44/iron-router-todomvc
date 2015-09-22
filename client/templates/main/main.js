@@ -7,17 +7,6 @@ Template.Main.events({
     Tasks.find({}).forEach(function(task) {
       Meteor.call('setComplete', task._id, state);
     });
-/*
-    if(!Tasks.find({completed: false}).count()) {
-      Tasks.find({}).forEach(function(task) {
-        Meteor.call('setComplete', task._id, false);
-      });
-    } else {
-      Tasks.find({completed: false}).forEach(function(task) {
-        Meteor.call('setComplete', task._id, true);
-      });
-    }
-    */
   }
 });
 
@@ -26,9 +15,6 @@ Template.Main.events({
 /*****************************************************************************/
 Template.Main.helpers({
   tasks: function() {
-    console.log("Query");
-    console.log(this);
-    console.log(this.q);
     return Tasks.find(this.q, {sort: {createdAt: -1}});
   },
   check: function() {
