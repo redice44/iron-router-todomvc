@@ -19,9 +19,17 @@ Iron Meteor is a collection of packages that include Iron Router, a client and s
 *Let us [know](https://github.com/tastejs/todomvc/issues) if you discover anything worth sharing.*
 
 
-## Implementation
+## Running
 
-How was the app created? Anything worth sharing about the process of creating the app? Any spec violations?
+If you don't have Meteor installed already, from a terminal window:
+
+  curl install.meteor.com | /bin/sh
+
+To run the app:
+
+  meteor
+
+The app should now be running on http://localhost:3000.
 
 
 ## Credit
