@@ -1,12 +1,12 @@
-<template name='AppLayout'>
-  <section class='todoapp'>
-    {{> yield "header"}}
+<template name="AppLayout">
+	<section class="todoapp">
+		{{> yield "header"}}
 
-    {{#if emptyList}}
-      {{> yield "main"}}
+		{{#if emptyList}}
+		{{> yield "main"}}
 
-      {{> yield "footer"}}
-    {{/if}}
-  </section>
-  {{> yield "info"}}
+		{{> yield "footer"}}
+		{{/if}}
+	</section>
+	{{> yield "info"}}
 </template>

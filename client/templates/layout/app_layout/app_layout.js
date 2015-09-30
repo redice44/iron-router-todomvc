@@ -8,9 +8,9 @@ Template.AppLayout.events({
 /* AppLayout: Helpers */
 /*****************************************************************************/
 Template.AppLayout.helpers({
-  emptyList: function() {
-    return Tasks.find({}).count();
-  }
+	emptyList: function() {
+		return Tasks.find({}).count();
+	}
 });
 
 /*****************************************************************************/
