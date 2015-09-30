@@ -1,4 +1,4 @@
-# Iron Meteor Example
+# Iron Router Example
 
 Meteor is a complete open source platform for building web and mobile apps in pure JavaScript.
 
