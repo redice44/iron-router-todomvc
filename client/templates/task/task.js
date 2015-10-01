@@ -1,8 +1,6 @@
 var ENTER_KEY = 13;
 var ESC_KEY = 27;
-/*****************************************************************************/
-/* Task: Event Handlers */
-/*****************************************************************************/
+
 Template.Task.events({
 	'click .toggle': function(event) {
 		Meteor.call('setComplete', this._id, !this.completed);
@@ -26,9 +24,6 @@ Template.Task.events({
 	}
 });
 
-/*****************************************************************************/
-/* Task: Helpers */
-/*****************************************************************************/
 Template.Task.helpers({
 	isComplete: function() {
 		return (this.completed) ? 'checked' : '';
@@ -41,16 +36,4 @@ Template.Task.helpers({
 			return 'editing';
 		}
 	}
-});
-
-/*****************************************************************************/
-/* Task: Lifecycle Hooks */
-/*****************************************************************************/
-Template.Task.onCreated(function () {
-});
-
-Template.Task.onRendered(function () {
-});
-
-Template.Task.onDestroyed(function () {
 });

@@ -1,6 +1,3 @@
-/*****************************************************************************/
-/* Main: Event Handlers */
-/*****************************************************************************/
 Template.Main.events({
 	'click .toggle-all': function(event) {
 		var state = event.currentTarget.checked;
@@ -10,9 +7,6 @@ Template.Main.events({
 	}
 });
 
-/*****************************************************************************/
-/* Main: Helpers */
-/*****************************************************************************/
 Template.Main.helpers({
 	tasks: function() {
 		return Tasks.find(this.q, {sort: {createdAt: -1}});
@@ -23,16 +17,4 @@ Template.Main.helpers({
     	return 'checked';
     }
   }
-});
-
-/*****************************************************************************/
-/* Main: Lifecycle Hooks */
-/*****************************************************************************/
-Template.Main.onCreated(function () {
-});
-
-Template.Main.onRendered(function () {
-});
-
-Template.Main.onDestroyed(function () {
 });
