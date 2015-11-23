@@ -6,6 +6,8 @@ Meteor is a complete open source platform for building web and mobile apps in pu
 
 Iron Meteor is a collection of packages that include Iron Router, a client and server side router designed specifically for Meteor.
 
+[Live Demo](http://iron-router-todomvc.meteor.com/)
+
 ## Resources
 
 - [Meteor Website](https://www.meteor.com/)
